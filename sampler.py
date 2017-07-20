@@ -58,6 +58,7 @@ class Sampler:
                     label='sampled')
         plt.show()
 
+#helper to generate circular shaped data
 def generate_circles(countPoints, countCircles):
     iterations =  countCircles // 2
     samplesPer2Circles = countPoints // iterations
@@ -72,19 +73,22 @@ def generate_circles(countPoints, countCircles):
     np.random.shuffle(allCircles)
     return allCircles
 
+#generat a dataset with 10 radial clusters consisting of total 1000 points
 circles = generate_circles(1000, 10)
 
+#First test: Bernoulli sampling with p=0.5 and 50 points
 bernoulliSampler = Sampler()
 sampledPoints = np.array(bernoulliSampler.bernoulli(circles, 50))
 print("Number of sampled points: ", len(sampledPoints))
 bernoulliSampler.plot()
 
+#Second test: Bernoulli sampling with p=0.5 and 100 points
 bernoulliSampler = Sampler()
 sampledPoints = np.array(bernoulliSampler.bernoulli(circles, 100))
 print("Number of sampled points: ", len(sampledPoints))
 bernoulliSampler.plot()
 
-
+#Use importance sampler
 importanceSampler = Sampler()
 sampledPoints = np.array(importanceSampler.importance(circles, 100))
 importanceSampler.plot()
