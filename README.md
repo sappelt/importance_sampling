@@ -12,6 +12,6 @@ Currently working:
 What is missing:
 
 - Use fast rank-one updates
-- Cluster data using MinMax k-means
+- Cluster data using approximate kernel clusters
 - Finding closest clusters
 - Deleting stale clusters

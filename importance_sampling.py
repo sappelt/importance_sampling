@@ -44,10 +44,12 @@ class ImportanceSampling:
             return False
 
     def _probability(self, kernel):
-        # Calculate probability of adding a point
+        # Calculate probability
+
         # Take last row of eigenvectors and calculate l2 norm
         l2_norm = self._row_l2_norm(kernel.eigenvectors[kernel.eigenvectors.shape[0] - 1, 0:len(self.clusters)])
         print("l2_norm:", l2_norm)
+
         probability = (1/len(self.clusters))*l2_norm
         print("probability: ", probability);
         return probability
